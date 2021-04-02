@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
-import ElementUI from 'element-ui'
+import ElementUI, { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
@@ -14,6 +14,27 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
+
+import axios from 'axios'
+// 统一的跨域前缀
+axios.defaults.baseURL = 'http://localhost:8066/'
+// 设置默认的请求超时时间。例如超过了5s，就会告知用户当前请求超时，请刷新等。
+axios.defaults.timeout = 5000
+// 导入通用的全局对象
+Vue.prototype.$axios = axios
+
+Vue.config.productionTip = false
+
+// 路由
+router.beforeEach((to, from, next) => {
+  // eslint-disable-next-line eqeqeq
+  if (to.path == '/login' || sessionStorage.getItem('token')) {
+    next()
+  } else {
+    Message.error('请重新登录')
+    next('login')
+  }
+})
 
 /**
  * If you don't want to use mock-server
