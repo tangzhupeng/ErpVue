@@ -1,5 +1,5 @@
 {
-  "name": "vue-admin-template",
+  "name": "ERP",
   "version": "4.4.0",
   "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
   "author": "Pan <panfree23@gmail.com>",
@@ -26,6 +26,8 @@
     "vuex": "3.1.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
     "@vue/cli-plugin-babel": "4.4.4",
     "@vue/cli-plugin-eslint": "4.4.4",
     "@vue/cli-plugin-unit-jest": "4.4.4",
@@ -37,8 +39,8 @@
     "babel-plugin-dynamic-import-node": "2.3.3",
     "chalk": "2.4.2",
     "connect": "3.6.6",
-    "eslint": "6.7.2",
-    "eslint-plugin-vue": "6.2.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^7.8.0",
     "html-webpack-plugin": "3.2.0",
     "mockjs": "1.0.1-beta3",
     "runjs": "4.3.2",
@@ -58,5 +60,18 @@
     "node": ">=8.9",
     "npm": ">= 3.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangzhupeng/ERP_vue.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/tangzhupeng/ERP_vue/issues"
+  },
+  "homepage": "https://github.com/tangzhupeng/ERP_vue#readme"
 }

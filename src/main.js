@@ -17,7 +17,7 @@ import '@/permission' // permission control
 
 import axios from 'axios'
 // 统一的跨域前缀
-axios.defaults.baseURL = 'http://localhost:8066/'
+axios.defaults.baseURL = 'http://localhost:8088/'
 // 设置默认的请求超时时间。例如超过了5s，就会告知用户当前请求超时，请刷新等。
 axios.defaults.timeout = 5000
 // 导入通用的全局对象
@@ -36,6 +36,13 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
